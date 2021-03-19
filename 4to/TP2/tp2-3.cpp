@@ -6,5 +6,5 @@ int main(){
 	a = b;
 	b = hold;
 	cout << "Variable a:" << a << "\nVariable b:" << b << endl;
-    return 0;
+    	return 0;
 }
