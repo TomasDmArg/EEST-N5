@@ -1,1 +1,2 @@
--En esta rama se desarrollarán los trabajos antes de enviarlos
+
+- En esta rama se desarrollan los trabajos antes de publicarlos en la rama principal
