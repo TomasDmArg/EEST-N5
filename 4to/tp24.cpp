@@ -10,9 +10,9 @@ int main(){
     show("Casos (cantidad): ");
     cin>>number;
     for(int i = 1; i <= number; i++){
-		int num;
+	int num;
         show("Ingrese un numero: ");
-		cin>>num;
+	cin>>num;
         (num >= 10 && num <= 20) ? insideInterval++ : outsideInterval++;
     }
     showTwo("Numeros dentro del intervalo: ", insideInterval);
