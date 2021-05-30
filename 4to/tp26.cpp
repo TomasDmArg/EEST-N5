@@ -1,13 +1,13 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 int main(){
-    int n,sum=0,m;    
-    cout<<"Enter a number: ";    
-    cin>>n;    
-    while(n>0){    
-        m=n%10;    
-        sum=sum+m;    
-        n=n/10;    
+    int x,digit;
+	int res = 0;    
+    cout<<"Ingrese un numero: "; cin>>x;    
+    while(x>0){    
+        digit = x%10;    
+        res += digit;    
+        x = x/10;    
     }    
-    cout<<"Sum is= "<<sum<<endl; 
+    cout<<res; 
 }
