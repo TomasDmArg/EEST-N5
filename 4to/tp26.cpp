@@ -1,13 +1,17 @@
 #include <iostream>
 using namespace std;
+int sumDigits(int x);
 int main(){
-    int x,digit;
-	int res = 0;    
+	int x;
     cout<<"Ingrese un numero: "; cin>>x;    
-    while(x>0){    
-        digit = x%10;    
+    cout<<"El resultado de la suma es: "<<sumDigits(x); 
+}
+sumDigits(int num){
+	int res = 0, digit;
+	while(num>0){    
+        digit = num%10;    
         res += digit;    
-        x = x/10;    
-    }    
-    cout<<res; 
+        num = num/10;    
+    }
+    return res;
 }
