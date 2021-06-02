@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
+<<<<<<< HEAD
 int sumDigits(int x);
+=======
+int sumDigits(int num);
+>>>>>>> bcd1c7e726a4ba7cbf3b741f24cec5f22de2f717
 int main(){
 	int x;
     cout<<"Ingrese un numero: "; cin>>x;    
