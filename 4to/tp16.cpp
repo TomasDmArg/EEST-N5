@@ -7,7 +7,7 @@ int main (){
 }
 execute(){
     int input, hundred, fifty, twenty, ten, five, two, one;
-    cout << "Amount: "
+    cout << "Amount: ";
     cin >> input;
     hundred = input/100;
     input = input - 100*hundred;
