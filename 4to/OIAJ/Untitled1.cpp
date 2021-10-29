@@ -1,19 +1,19 @@
 //Rapigrama
 //Program that find a word in a n strings in all axes
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
-#define ask ent>>
-#define show sal<<
+#define ask cin>>
+#define show cout<<
 #define vst vector<string>
 #define FASTIO ios_base::sync_with_stdio(false); cin.tie(NULL);
 
 vst mainList, wordList, colList, invertedColumns, invertedMainList;
 int n0, n1;
-bool res;
-ifstream ent;
-ofstream sal;
 
 void askForStrings(int n0, int n1){
     string tempWord;
@@ -28,13 +28,12 @@ void askForStrings(int n0, int n1){
 }
 void getCols(){
     //Divide all strings in columns
-    string tempCol;
     for(int i=0; i<mainList[0].size(); i++){
+        string tempCol;
         for(int j=0; j<mainList.size(); j++){
             tempCol+=mainList[j][i];
         }
         colList.push_back(tempCol);
-        tempCol="";
     }
 }
 void invertColumns(){
@@ -59,11 +58,11 @@ void invertColumns(){
 }
 //Invert the columns and check if exists the word like indexof
 bool upToDown(string word, int numOfWord){
-    res = false;
+    bool res = false;
     //Check if the word exists in colList using find
     for(int i=0; i<colList.size(); i++){
-        auto sres = colList[i].find(word);
-        if(sres != string::npos){
+        auto res = colList[i].find(word);
+        if(res != string::npos){
             show numOfWord<<" S\n";
             res = true;
             i = colList.size();
@@ -72,11 +71,11 @@ bool upToDown(string word, int numOfWord){
     return res;
 }
 bool downToUp(string word, int numOfWord){
-    res = false;
+    bool res = false;
     //Check if the word exists in the inverted columns
     for(int i=0; i<invertedColumns.size(); i++){
-        auto sres = invertedColumns[i].find(word); 
-        if(sres != string::npos){
+        auto res = invertedColumns[i].find(word); 
+        if(res!=string::npos){
             show numOfWord<<" N\n";
             res = true;
             i = invertedColumns.size();
@@ -86,10 +85,10 @@ bool downToUp(string word, int numOfWord){
 }
 bool leftToRight(string word, int numOfWord){  
     //Check if exists the word
-    res = false;
+    bool res = false;
     for(int i=0; i<mainList.size(); i++){
-        auto sres = mainList[i].find(word);
-        if(sres !=string::npos){
+        auto res = mainList[i].find(word);
+        if(res !=string::npos){
             show numOfWord<<" E\n";
             res = true;
             i = mainList.size();
@@ -99,10 +98,10 @@ bool leftToRight(string word, int numOfWord){
 }
 bool rightToLeft(string word, int numOfWord){
     //Check if exists the word
-    res = false;
+    bool res = false;
     for(int i=0; i<mainList.size(); i++){
-        auto sres = invertedMainList[i].find(word);
-        if(sres != string::npos){
+        auto res = invertedMainList[i].find(word);
+        if(res != string::npos){
             show numOfWord<<" O\n";
             res = true;
             i = invertedMainList.size();
@@ -110,24 +109,29 @@ bool rightToLeft(string word, int numOfWord){
     }
     return res;
 }
-int m;
+vector<int> status;
 bool check(string word, int pos){
-    m=0;
+    int m=0;
     if(leftToRight(word, pos)) m++;
-    if(m == 0 && rightToLeft(word, pos)) m++;
-    if(m == 0 && upToDown(word, pos))    m++;
-    if(m == 0 && downToUp(word, pos))    m++;
+    if(rightToLeft(word, pos) && m == 0) m++;
+    if(upToDown(word, pos) && m == 0) m++;
+    if(downToUp(word, pos) && m == 0) m++;
 }
 void theWordExists(){
     for(int i = 0; i < wordList.size(); i++){
         //Check all axes and if one of them is true, stop executing
+        // if(leftToRight(wordList[i], i+1) || rightToLeft(wordList[i], i+1) || upToDown(wordList[i], i+1) || downToUp(wordList[i], i+1) ){
+        //     status.push_back(1);
+        // }
+        // leftToRight(wordList[i], i+1);
+        // rightToLeft(wordList[i], i+1);
+        // upToDown(wordList[i], i+1);
+        // downToUp(wordList[i], i+1);
         check(wordList[i], i+1);
     }
 }
 int main (){ 
     FASTIO
-    ent.open("rapigrama.in");
-    sal.open("rapigrama.out");
     ask n0>>n1;
     askForStrings(n0, n1);
     getCols();
@@ -135,3 +139,4 @@ int main (){
     theWordExists();
     return 0;
 }
+

@@ -1,9 +1,7 @@
-#include <bits/stdc++.h>
-#include "pedirDatos.cpp"
+//Calculate the future value of a investment
+#include <iostream>
+#include <vector>
+using namespace std;
 int main(){
-    int N, M;
-    vector<int> vt;
-    pedir(N, M, vt);
-    mostrar(vt);
-    return 0;
+    
 }
