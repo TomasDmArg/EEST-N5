@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+:root{
+    --principal: #ff411f;
+    --bg: #171717;
+    --text: #eee;
+}
+*{
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+}
+.body{
+    background-color: var(--bg);
+}
+.main{
+    margin-top: 30vh;
+    margin-left: 20px;
+}
+.main__section--title{
+    font-size: 3rem;
+    margin-top: 2rem;
+}
+.main__section--text{
+    font-size: 1.5rem;
+    margin: 1rem 0 2rem 0;
+}
+.main__section--button{
+    padding: 10px 20px;
+    margin-top: 10px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    border: 3px solid var(--principal);
+    transition: 0.5s;
+}
+.main__section--button:hover{
+    background-color: var(--principal);
+    transition: 0.5s;
+}
+.main__section--input{
+    padding: 12px 12px;
+    width: 500px;
+    color: var(--bg);
+    font-size: 15px;
+}
+.ej2{
+    max-width: 50vw;
+}
+.main__section--text2{
+    margin-bottom: 10px;
+}
+.main__section--text3{
+    margin-top: 20px;
+}
+.main__section--text3:nth-child(1){
+    text-align: left;
+}
+.main__section--text3:nth-child(2){
+    text-align: right;
+}
+.main__section--text3:nth-child(3){
+    text-align: center;
+}
+.main__section--text4:nth-child(1){
+    color: var(--principal);
+    font-weight: 700;
+    font-size: 2rem;
+}
+.main__section--text4:nth-child(2){
+    color: #00ff00;
+    font-family: 'Times New Roman', Courier, monospace;
+    font-size: 1.7rem;
+}
+.main__section--text4:nth-child(3){
+    color: #0000ff;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 1.5rem;
+}
+.ej4{
+    margin-top: -50px;
+    max-width: 80vw;
+}

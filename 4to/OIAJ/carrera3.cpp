@@ -21,6 +21,12 @@ class Competitor{
             genre = g;
             id = i;
         }
+        //Delete object
+        ~Competitor(){
+            age = 0;
+            genre = "";
+            id = 0;
+        }
 };
 
 //Create a class for the age groups
@@ -61,28 +67,31 @@ void getCompetitors(int qt){
         mainList.push_back(cmp);
     }
 }
-
 //Get the competitors that arrived to the finish line in order of arrive
 vector< vector <int> > positionsByCategories; 
 void getWinners(int qt){
+    vector<int> finalResult;
     int id;
     for(int i = 0; i < allCategories.size(); i++){
         vector<int> pos;
         positionsByCategories.push_back(pos);
     }
     for(int i = 0; i < qt; i++){
-        ask id;
-        //Search for the id and place into the correct category depending on the genre
-        for(int j = 0; j < mainList.size(); j++){
-            if(mainList[j]->id == id){
-                for(int k = 0; k < allCategories.size(); k++){
-                    if(mainList[j]->genre == allCategories[k]->genre){
-                        if(mainList[j]->age >= allCategories[k]->min && mainList[j]->age <= allCategories[k]->max){
-                            //Add the id to the vector of categories
-                            positionsByCategories[k].push_back(id);
-
-                        }
+        ask id; 
+        finalResult.push_back(id);
+    }
+    for(int i = 0; i < finalResult.size(); i++){
+        Competitor* cmp = mainList[finalResult[i]-1];
+        //Place cmp in the correct Category
+        for(int k = 0; k < allCategories.size(); k++){
+            if(cmp->genre == allCategories[k]->genre){
+                if(positionsByCategories[k].size() < 3){
+                    if(cmp->age >= allCategories[k]->min && cmp->age <= allCategories[k]->max){
+                        //Add the id to the vector of categories
+                        positionsByCategories[k].push_back(finalResult[i]);
                     }
+                }else{
+                    break;
                 }
             }
         }
@@ -103,7 +112,10 @@ void showContent (){
         vector<int> el = positionsByCategories[i]; 
         (genre == allCategories[i]->genre) ? genreCount++ : genreCount = 1;
         show genreCount<<" ";        
-        show el[0]<<" "<<el[1]<<" "<<el[2]<<"\n";
+        for(int i = 0; i < 3; i++){
+            show el[i]<<" ";
+        }
+        show "\n";
     }
 } 
 
