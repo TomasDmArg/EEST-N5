@@ -76,17 +76,18 @@ void deleteLast(){
 
 //Find item in list and return the position
 int findItem(int data){
-    int position = 0;
     node *temp = head;
+    int pos = 0;
     while(temp != NULL){
         if(temp->data == data){
-            return position;
+            return pos;
         }
         temp = temp->next;
-        position++;
+        pos++;
     }
     return -1;
 }
+
 
 // Encontrar y borrar nodo
 void deleteItem(int data){
