@@ -1,0 +1,20 @@
+doctype html
+html(lang="es")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="style.css")
+        link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
+        title TP51
+    body    
+        section.container 
+            h1.title TP51
+            section.container 
+                section.container__inputs 
+                    input(type="text", name="code-1", class="container__inputs--code", placeholder="Código")
+                    input(type="number", name="value-1", class="container__inputs--value", placeholder="9.99")
+            button#add
+                i.fas.fa-plus
+            button#btn Ver resultado
+        script(src="main.js") 

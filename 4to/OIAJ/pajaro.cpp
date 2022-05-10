@@ -47,7 +47,7 @@ public:
     void showData(){
         show processData();
     }
-};
+}; 
 int main() {
     FASTIO
     Program* pr = new Program(1); 
