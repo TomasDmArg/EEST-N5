@@ -23,35 +23,31 @@ servidor.listen(8888)
 
 function encaminar(pedido, respuesta, camino) {
   console.log(camino)
-  switch (camino) {
-    case 'public/recuperardatos': {
-      recuperar(pedido, respuesta)
-      break
-    }
-    default: {
+  if (camino == "public/recuperardatos") {
+      recuperar(pedido, respuesta);
+    } else {
       stat(camino)
         .then(() => {
           readFile(camino)
-            .then(contenido => {
-              const vec = camino.split('.')
-              const extension = vec[vec.length - 1]
-              const mimearchivo = mime[extension]
-              respuesta.writeHead(200, { 'Content-Type': mimearchivo })
-              respuesta.write(contenido)
-              respuesta.end()
+            .then((contenido) => {
+              const vec = camino.split(".");
+              const extension = vec[vec.length - 1];
+              const mimearchivo = mime[extension];
+              respuesta.writeHead(200, { "Content-Type": mimearchivo });
+              respuesta.write(contenido);
+              respuesta.end();
             })
-            .catch(error => {
-              respuesta.writeHead(500, { 'Content-Type': 'text/plain' })
-              respuesta.write('Error interno')
-              respuesta.end()
-            })
+            .catch((error) => {
+              respuesta.writeHead(500, { "Content-Type": "text/plain" });
+              respuesta.write("Error interno");
+              respuesta.end();
+            });
         })
-        .catch(error => {
-          respuesta.writeHead(404, { 'Content-Type': 'text/html' })
-          respuesta.end('<h1>Error 404: No existe el recurso solicitado</h1>')
-        })
+        .catch((error) => {
+          respuesta.writeHead(404, { "Content-Type": "text/html" });
+          respuesta.end("<h1>Error 404: No existe el recurso solicitado</h1>");
+        });
     }
-  }
 }
 
 
