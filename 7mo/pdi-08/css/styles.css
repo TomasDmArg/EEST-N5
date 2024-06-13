@@ -1,0 +1,105 @@
+:root{
+    --primary-color: #2c3e50;
+    --bg: #f0f0f0;
+    --second-bg: #ddd;
+    --radius: 12px;
+    --spacing: 30px;
+    --spacing05: 15px;
+    --spacing2: 60px;
+}
+
+* {
+    font-family: 'Satoshi', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg);
+    color: var(--primary-color);
+    margin: 0;
+    padding: var(--spacing);
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+input{
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--spacing05);
+    border: 1px solid var(--second-bg);
+    height: 40px;
+    min-width: 200px;
+}
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 var(--spacing05);
+    height: 40px;
+    border: 1px solid var(--primary-color);
+    background-color: var(--primary-color);
+    color: var(--bg);
+    font-family: 'Satoshi', sans-serif;
+}
+
+#results {
+    margin-top: 20px;
+}
+
+#results p {
+    background-color: var(--bg);
+    border: 1px solid var(--second-bg);
+    padding: var(--spacing);
+    margin: 10px;
+    border-radius: var(--radius);
+}
+
+.allAnimals{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.allAnimals__items{ 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: calc(100% - 60px);
+    margin-bottom: var(--spacing);
+    border: 1px solid var(--second-bg);
+    padding: var(--spacing);
+    border-radius: var(--radius);
+}
+
+.allAnimals__items p{
+    min-width: min(300px, 10%);
+} 
+
+.allAnimals__itemsHead h3{
+    min-width: min(300px, 10%);
+}
+.allAnimals__itemsHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing);
+    width: calc(100% - 60px);
+}
+
+
+.addAnimal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--spacing05);
+}
