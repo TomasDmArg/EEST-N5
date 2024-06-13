@@ -72,11 +72,13 @@ button{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: calc(100% - 60px);
     margin-bottom: var(--spacing);
     border: 1px solid var(--second-bg);
     padding: var(--spacing);
     border-radius: var(--radius);
+    position: relative;
 }
 
 .allAnimals__items p{
@@ -86,6 +88,16 @@ button{
 .allAnimals__itemsHead h3{
     min-width: min(300px, 10%);
 }
+
+.deleteButton{
+    background-color: transparent;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    position: absolute;
+    right: var(--spacing05);
+}
+
 .allAnimals__itemsHead{
     display: flex;
     flex-direction: row;
