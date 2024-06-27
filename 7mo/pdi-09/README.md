@@ -5,19 +5,19 @@ Este proyecto contiene tres ejercicios que demuestran diferentes aspectos de la 
 ## Estructura del Proyecto
 
 ```
-proyecto/
+pdi-09/
 │
-├── ejercicio1/
+├── ejercicio-1/
 │   ├── math.js
 │   ├── main.js
 │   └── docs/
 │
-├── ejercicio2/
+├── ejercicio-2/
 │   ├── persona.js
 │   ├── app.js
 │   └── docs/
 │
-├── ejercicio3/
+├── ejercicio-3/
 │   ├── calculadora.js
 │   ├── main.js
 │   └── docs/
