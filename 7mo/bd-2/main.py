@@ -23,6 +23,12 @@ def registrar_persona(registro, nombre, edad, correo):
 def filtrar_mayores_de_edad(registro):
     return {nombre: datos for nombre, datos in registro.items() if datos["edad"] >= 18}
 
+# Ejercicio 4: Ordenar abecedario desordenado
+def ordenar_abecedario(abecedario_desordenado):
+    orden_espanol = 'abcdefghijklmnñopqrstuvwxyz'
+    return sorted(abecedario_desordenado, key=lambda x: orden_espanol.index(x))
+
+
 # Ejemplos de uso
 if __name__ == "__main__":
     # Ejercicio 1
@@ -47,3 +53,15 @@ if __name__ == "__main__":
     print("Personas mayores de edad:")
     for nombre, datos in mayores_de_edad.items():
         print(f"{nombre}: {datos}")
+    
+    # Ejercicio 4
+    print("\nEjercicio 4: Ordenar abecedario desordenado")
+    abecedario_desordenado = list('zyxwvutsrqponmlkjihñgfedcba')
+    print(f"Abecedario desordenado ({len(abecedario_desordenado)} letras): {abecedario_desordenado}")
+    
+    abecedario_ordenado = ordenar_abecedario(abecedario_desordenado)
+    print(f"Abecedario ordenado ({len(abecedario_ordenado)} letras): {abecedario_ordenado}")
+    
+    print("\nPosición de cada letra en el abecedario ordenado:")
+    for indice, letra in enumerate(abecedario_ordenado, start=1):
+        print(f"  Letra '{letra}' en posición {indice}")
