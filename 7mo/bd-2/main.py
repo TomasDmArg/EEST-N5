@@ -28,6 +28,42 @@ def ordenar_abecedario(abecedario_desordenado):
     orden_espanol = 'abcdefghijklmnñopqrstuvwxyz'
     return sorted(abecedario_desordenado, key=lambda x: orden_espanol.index(x))
 
+# Ejercicio 5: Registro de transacciones bancarias
+
+def crear_cuenta(numero_cuenta, saldo_inicial):
+    return {
+        "numero_cuenta": numero_cuenta,
+        "saldo": saldo_inicial,
+        "transacciones": []
+    }
+
+def registrar_transaccion(cuenta, tipo, monto):
+    if tipo not in ["depósito", "retiro"]:
+        return "Tipo de transacción inválido"
+    
+    if tipo == "retiro" and monto > cuenta["saldo"]:
+        return "Saldo insuficiente"
+    
+    cuenta["transacciones"].append({
+        "tipo": tipo,
+        "monto": monto,
+        "saldo_anterior": cuenta["saldo"],
+        "saldo_nuevo": cuenta["saldo"] + monto if tipo == "depósito" else cuenta["saldo"] - monto
+    })
+    
+    if tipo == "depósito":
+        cuenta["saldo"] += monto
+    else:
+        cuenta["saldo"] -= monto
+    
+    return "Transacción registrada con éxito"
+
+def obtener_saldo(cuenta):
+    return cuenta["saldo"]
+
+def obtener_historial(cuenta):
+    return cuenta["transacciones"]
+
 
 # Ejemplos de uso
 if __name__ == "__main__":
@@ -65,3 +101,29 @@ if __name__ == "__main__":
     print("\nPosición de cada letra en el abecedario ordenado:")
     for indice, letra in enumerate(abecedario_ordenado, start=1):
         print(f"  Letra '{letra}' en posición {indice}")
+
+    # Ejercicio 5
+    print("\nEjercicio 5: Registro de transacciones bancarias")
+    
+    # Crear una cuenta
+    mi_cuenta = crear_cuenta("12345", 1000)
+    print(f"Cuenta creada: {mi_cuenta['numero_cuenta']}, Saldo inicial: ${mi_cuenta['saldo']}")
+    
+    # Realizar transacciones
+    print(registrar_transaccion(mi_cuenta, "depósito", 500))
+    print(registrar_transaccion(mi_cuenta, "retiro", 200))
+    print(registrar_transaccion(mi_cuenta, "depósito", 1000))
+    print(registrar_transaccion(mi_cuenta, "retiro", 1500))
+    
+    # Intentar un retiro mayor al saldo
+    print(registrar_transaccion(mi_cuenta, "retiro", 2000))
+    
+    # Mostrar saldo actual
+    print(f"Saldo actual: ${obtener_saldo(mi_cuenta)}")
+    
+    # Mostrar historial de transacciones
+    print("\nHistorial de transacciones:")
+    for transaccion in obtener_historial(mi_cuenta):
+        print(f"  Tipo: {transaccion['tipo']}, Monto: ${transaccion['monto']}, " 
+              f"Saldo anterior: ${transaccion['saldo_anterior']}, "
+              f"Nuevo saldo: ${transaccion['saldo_nuevo']}")
